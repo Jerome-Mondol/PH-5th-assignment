@@ -7,25 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="navbar flex bg-red-500 h-[15vh]">
-        <div class="logo">
-            <img src="./assets/logo.png" alt="">
-            <p>Emergency <br> Service</p>
+    <!-- Navbar -->
+    <div class="navbar flex bg-white h-[14vh] justify-between px-10 flex-col sm:flex-row items-center gap-3">
+        <div class="logo flex items-center gap-5">
+            <img src="./assets/logo.png" alt="" class="w-20 h-20">
+            <p class="text-green-800 font-bold hidden sm:block text-base md:text-xl" >Emergency <br> Service</p>
         </div>
 
-        <div class="hearts">
-            <p id="heart-count"></p>
-            <img src="./assets/heart.png" alt="">
+        <div class="flex gap-3 sm:gap-7 items-center">
+        <div class="hearts flex items-center bg-[#41FF6B]/20 px-5 h-10 md:px-8 md:h-15 rounded-4xl gap-2">
+            <p id="heart-count" class="font-bold ">5</p>
+            <img src="./assets/heart.png" alt="" class="w-5 h-5 md:w-10 md:h-10">
         </div>
 
-        <div class="coins">
-            <p id="coin-count"></p>
-            <img src="./assets/coin.png" alt="">
+        <div class="coins flex items-center bg-[#41FF6B]/20 px-5 h-10 md:px-8 md:h-15 rounded-4xl gap-2">
+            <p id="coin-count" class="font-bold ">100</p>
+            <img src="./assets/coin.png" alt="" class="w-5 h-5 md:w-10 md:h-10">
         </div>
 
-        <div class="copy">
-            <p id="copy-count"></p>
+        <div class="copy flex items-center bg-[#00A63E] px-5 h-10 md:px-8 md:h-15 rounded-4xl gap-2 text-white font-bold">
+            <p id="copy-count">3</p>
             <h1>Copy</h1>
+        </div>
         </div>
     </div>
 </body>
