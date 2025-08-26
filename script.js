@@ -1,9 +1,20 @@
 import { cardData } from './cards.js'
 let cardsParent = document.querySelector('#cards');
+let heartCount = 0;
+let coinCount = 100;
+let copyCount = 0; 
+
+const hearts = document.querySelector('#heart-count');
+hearts.innerText = heartCount;
+const coins = document.querySelector('#coin-count');
+coins.innerText = coinCount;
+const copies = document.querySelector('#copy-count');
+copies.innerText = copyCount;
+
 
 for(let i = 0; i < cardData.length; i++) { 
     let childCard = document.createElement('div');
-    childCard.classList.add('bg-white', 'w-[25%]', 'h-80', 'rounded-lg', 'shadow-sm', 'flex', 'flex-col', 'p-9');
+    childCard.classList.add('bg-white', 'h-80', 'rounded-lg', 'shadow-sm', 'flex', 'flex-col','p-9');
     let childCardElemImg = document.createElement('img');
     let childCardElemLove = document.createElement('i');
     childCardElemLove.classList.add('fa-regular', 'fa-heart', 'text-2xl');
@@ -47,9 +58,6 @@ for(let i = 0; i < cardData.length; i++) {
     childCardElemCallBTN.innerText = "Call";
     childCardElemCallBTN.classList.add('w-[47%]', 'bg-[#00A63E]', 'rounded-sm', 'cursor-pointer', 'text-white');
 
-
-
-
     cardsParent.appendChild(childCard);
 
 
@@ -67,4 +75,27 @@ for(let i = 0; i < cardData.length; i++) {
     childCardElemBTNContainer.appendChild(childCardElemCopyBTN);
     childCardElemBTNContainer.appendChild(childCardElemCallBTN);
 
+
+    childCardElemCallBTN.addEventListener('click', (event) => {
+        event.preventDefault();
+        if(coinCount < 20) {
+            alert("Not enough coins to call");
+            return;
+        }
+        coinCount = coinCount - 20;
+        coins.innerText = coinCount;
+        alert(`Calling ${cardData[i].title} ${cardData[i].tel}`)
+    })
+
+    childCardElemCopyBTN.addEventListener('click', () => {
+        copyCount++;
+        copies.innerText = copyCount;
+        alert(`${cardData[i].tel} is successfully copied to clipboard`);
+        navigator.clipboard.writeText(cardData[i].tel);
+    })
+
+    childCardElemLove.addEventListener('click', () => {
+        heartCount++;
+        hearts.innerText = heartCount;
+    })
 }
