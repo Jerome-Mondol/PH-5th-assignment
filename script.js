@@ -15,6 +15,13 @@ copies.innerText = copyCount;
 
 let history = document.querySelector('#history');
 
+window.clearHistory = function() {
+  const head = history.querySelector(".head"); 
+  history.innerHTML = "";  
+  history.appendChild(head); 
+}
+
+
 
 for(let i = 0; i < cardData.length; i++) { 
     let childCard = document.createElement('div');
@@ -126,3 +133,4 @@ for(let i = 0; i < cardData.length; i++) {
         hearts.innerText = heartCount;
     })
 }
+

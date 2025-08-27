@@ -41,13 +41,13 @@
      </div>
 
     <!-- Main -->
-     <div class="main bg-[#00A63E]/10 h-auto flex p-10 flex-row gap-10">
-        <div class="cards w-[70%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-10" id="cards">
+     <div class="main bg-[#00A63E]/10 h-auto flex p-10 flex-col gap-10 md:flex-row">
+        <div class="cards w-[100%] md:w-[70%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-10" id="cards">
         </div>  
-        <div class="history w-[25%] bg-white shadow-sm flex flex-col items-center gap-3" id="history">
-            <div class="head flex gap-30 p-10 items-center">
-                <h1 class="text-2xl">Call history</h1>                
-                <button class="px-7 py-3 rounded-3xl bg-green-500 text-white font-bold cursor-pointer">Clear</button>
+        <div class="history w-[100%] md:w-[25%] bg-white shadow-sm flex flex-col items-center gap-3 p-3" id="history">
+            <div class="head flex justify-between p-10 items-center w-full ">
+                <h1 class="text-xl lg:text-2xl">Call history</h1>                
+                <button class="px-7 py-3 rounded-3xl bg-green-500 text-white font-bold cursor-pointer" onclick="clearHistory()">Clear</button>
             </div> 
         </div>
         </div>
@@ -60,7 +60,7 @@
 
 
 
+     <script src="script.js" type="module"></script>
      <script src="https://kit.fontawesome.com/b46c0ed6b8.js" crossorigin="anonymous"></script>
-     <script src="script.js" type="module" defer></script>
 </body>
 </html>
