@@ -4,12 +4,16 @@ let heartCount = 0;
 let coinCount = 100;
 let copyCount = 0; 
 
+
+
 const hearts = document.querySelector('#heart-count');
 hearts.innerText = heartCount;
 const coins = document.querySelector('#coin-count');
 coins.innerText = coinCount;
 const copies = document.querySelector('#copy-count');
 copies.innerText = copyCount;
+
+let history = document.querySelector('#history');
 
 
 for(let i = 0; i < cardData.length; i++) { 
@@ -85,6 +89,29 @@ for(let i = 0; i < cardData.length; i++) {
         coinCount = coinCount - 20;
         coins.innerText = coinCount;
         alert(`Calling ${cardData[i].title} ${cardData[i].tel}`)
+        let callCard = document.createElement('div');
+        callCard.classList.add('flex', 'bg-gray-500/10', 'rounded-md', 'w-[80%]', 'px-5', 'py-5', 'justify-between');
+        let callCardTitles = document.createElement('div');
+        callCardTitles.classList.add('flex', 'flex-col');
+        
+        let callCardTitle = document.createElement('h1');
+        callCardTitle.innerText = cardData[i].title;
+        callCardTitle.classList.add('text-lg', 'font-bold')
+        let callCardTel = document.createElement('p');
+        callCardTel.innerText = cardData[i].tel;
+        callCardTel.classList.add('text-gray-500/50');
+
+        callCardTitles.appendChild(callCardTitle);
+        callCardTitles.appendChild(callCardTel);
+
+        let now = new Date();
+        let timeFormatted = document.createElement('p');
+        timeFormatted.innerText = now.toLocaleTimeString('en-US', { hour12: true });
+
+        callCard.appendChild(callCardTitles);
+        callCard.appendChild(timeFormatted);
+
+        history.appendChild(callCard);
     })
 
     childCardElemCopyBTN.addEventListener('click', () => {
